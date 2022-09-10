@@ -1,0 +1,4 @@
+127.0.0.1 app.local.crypho.dev
+127.0.0.1 mocks.local.crypho.dev
+127.0.0.1 api.local.crypho.dev
+127.0.0.1 xmpp.local.crypho.dev
