@@ -3,9 +3,8 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
-/**
- * Base
- */
+// region Base
+
 // Debug
 const gui = new dat.GUI()
 
@@ -15,18 +14,20 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-/**
- * Test cube
- */
+// endregion
+
+// region Object Initialization
+
 const cube = new THREE.Mesh(
     new THREE.BoxBufferGeometry(1, 1, 1),
     new THREE.MeshBasicMaterial()
 )
 scene.add(cube)
 
-/**
- * Sizes
- */
+// endregion
+
+// region Sizes
+
 const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
@@ -47,9 +48,10 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
-/**
- * Camera
- */
+// endregion
+
+// region Camera
+
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
 camera.position.x = 3
@@ -61,18 +63,20 @@ scene.add(camera)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
-/**
- * Renderer
- */
+// endregion
+
+// region Renderer
+
 const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Animate
- */
+// endregion
+
+// region Animation
+
 const clock = new THREE.Clock()
 
 const tick = () =>
@@ -90,3 +94,5 @@ const tick = () =>
 }
 
 tick()
+
+// endregion
